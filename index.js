@@ -1,3 +1,8 @@
 #!/usr/bin/env node
 
-console.log("Tu m'as exécuté !");
+const chokidar = require('chokidar');
+
+chokidar.watch('.')
+    .on('add', () => console.log('FILE ADDED'))
+    .on('change', () => console.log('FILE CHANGE'))
+    .on('unlink', () => console.log('FILE UNLINK'));
